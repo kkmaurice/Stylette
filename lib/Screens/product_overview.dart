@@ -1,9 +1,11 @@
-// ignore_for_file: avoid_unnecessary_containers
+// ignore_for_file: avoid_unnecessary_containers, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stylette/Providers/product_controller.dart';
 import 'package:transparent_image/transparent_image.dart';
+
+import 'product_details.dart';
 
 class ProductOverview extends StatelessWidget {
   const ProductOverview({super.key});
@@ -25,7 +27,8 @@ class ProductOverview extends StatelessWidget {
           return Container(
             height: 600,
             child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const 
+              SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 3 / 2,
                 crossAxisSpacing: 8,
@@ -34,6 +37,7 @@ class ProductOverview extends StatelessWidget {
               itemCount: provider.items.length,
               itemBuilder: (context, index) {
                 return productContainer(provider: provider, index: index);
+                
               }
             ),
           );
@@ -62,7 +66,7 @@ class productContainer extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              
+              Navigator.of(context).pushNamed(DetailsPage.routeName, arguments: provider.items[index].id);
             },
             child: Container(
               height: 80,
@@ -89,7 +93,8 @@ class productContainer extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
+
         ],
       ),
     );

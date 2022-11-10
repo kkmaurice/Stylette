@@ -5,6 +5,7 @@ import 'package:stylette/Screens/product_overview.dart';
 
 import 'Providers/product_controller.dart';
 import 'Routes/routes.dart';
+import 'Screens/product_details.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           routes: {
            // '/': (context) => const FirstPage(),
             ProductOverview.routName: (context) => const ProductOverview(),
+            DetailsPage.routeName: (context) => const DetailsPage(),
           },
       ),
     );
